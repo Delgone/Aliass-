@@ -1,0 +1,301 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    140deg,
+    #E88846 0%,
+    #ad5f70 100%
+  );
+}
+
+/* общие экраны */
+.screen {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+  color: white;
+  font-weight: 700; 
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* экран старта */
+#start-screen {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+#start-screen h1 {
+  font-size: 28px;
+}
+
+#start-screen label {
+  font-size: 16px;
+}
+
+#start-screen input {
+  width: 80px;
+}
+
+#start-screen button {
+  background-color: #ffc758;
+  border-radius: 999px;
+  border: none;
+    
+  color: white;
+    padding: 15px 32px;
+    text-align: center;
+    
+  text-decoration: none;
+    display: inline-block;
+    font-weight: bold
+  
+}
+
+/* экран игры */
+#game-screen {
+  position: relative;
+}
+
+/* верхняя панель */
+#top-bar {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+#timer {
+  font-size: 24px;     /* увеличить размер */
+  font-weight: 700;    /* сделать жирным */
+  color: #ffffff; 
+}
+
+#score {
+  font-size: 24px;     /* увеличить размер */
+  font-weight: 700;    /* сделать жирным */
+  color: #ffffff;      /* при желании – белым */
+}
+
+#back-btn {
+  padding: 4px 10px;
+}
+
+/* центр: надпись, круг, надпись */
+#center-wrap {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.status-text {
+  font-size: 18px;
+  opacity: 0.8;
+  text-align: center;
+  border-radius: 100%;
+  border: 2px;
+  color: #ffc758;
+    padding: 15px 32px;
+    text-align: center;
+    
+  text-decoration: none;
+    display: inline-block;
+    font-weight: bold
+}
+
+/* круг со словом */
+#word-circle {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: #ffc758;
+  border: 3px solid rgb(243, 190, 75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  font-size: 22px;
+  line-height: 1.2;
+  user-select: none;
+  touch-action: none;
+}
+
+#word-circle.swipe-up {
+  background: #145214;
+}
+
+#word-circle.swipe-down {
+  background: #521414;
+}
+
+/* блок после окончания времени */
+#after-time {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* скрытие плашки по умолчанию */
+.hidden {
+  display: none !important;
+}
+
+.after-buttons button {
+  background-color: #ffc758;
+  border-radius: 999px;
+  border: none;
+    
+  color: white;
+    padding: 15px 32px;
+    text-align: center;
+    
+  text-decoration: none;
+    display: inline-block;
+    font-weight: bold
+}
+
+.back-buttons button {
+  background-color: #ffc758;
+  border-radius: 999px;
+  border: none;
+    
+  color: white;
+    padding: 15px 32px;
+    text-align: center;
+    
+  text-decoration: none;
+    display: inline-block;
+    font-weight: bold
+}
+
+.time-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.time-wrapper label {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.time-input {
+  width: 130px;
+  text-align: center;
+  padding: 8px 16px;
+  border-radius: 999px;          /* капсула */
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: #000000;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.time-input::-webkit-outer-spin-button,
+.time-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.time-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.pack-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.pack-label {
+  color: #ffffff;
+}
+
+/* контейнер селекта */
+.custom-select {
+  position: relative;
+  width: 160px;
+}
+
+/* закрытая капсула */
+.select-trigger {
+  background-color: #ffc758;
+  color: #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+.select-arrow {
+  font-size: 10px;
+}
+
+/* выпадающий список */
+.select-options {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background-color: #ffc758;
+  border-radius: 16px;
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 10;
+}
+
+.custom-select.open .select-options {
+  display: block;
+}
+
+.select-option {
+  padding: 6px 12px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.select-option:hover {
+  background-color: #ffc758;
+}
+
